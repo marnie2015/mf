@@ -1,0 +1,42 @@
+<div class="container center">
+  <div class="row">
+    <h5>CONTRIBUTION (250 per share)</h5>
+    <div class="col m12 s12">
+      <table class="striped">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Number of Share</th>
+            <th>Share per Cut-off</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%
+            share = 250
+            ctr = 0
+            total_contri = 0
+          %>
+          <% @contributions.each do |contri| %>
+          <% ctr += 1
+             total_contri += contri.amount
+          %>
+
+          <tr>
+            <td><%= ctr %></td>
+            <td>XXXXXXXXXX</td>
+            <td><%= contri.amount / share %></td>
+            <td>P <%= ActionController::Base.helpers.number_with_delimiter('%.2f' % contri.amount) %></td>
+          </tr>
+          <% end %>
+          <tr>
+            <td>&nbsp;</td>
+            <td class="bold">TOTAL</td>
+            <td class="bold"><%= total_contri / share %></td>
+            <td class="bold">P <%= ActionController::Base.helpers.number_with_delimiter('%.2f' % total_contri) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

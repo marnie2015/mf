@@ -1,0 +1,30 @@
+<%= form_with(model: contribution, local: true) do |form| %>
+  <% if contribution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contribution.errors.count, "error") %> prohibited this contribution from being saved:</h2>
+
+      <ul>
+      <% contribution.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, step: 250 %>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary">
+      submit
+    </button>
+    <%= link_to 'Back', contributions_path, class: 'btn' %>
+  </div>
+<% end %>
