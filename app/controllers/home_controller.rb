@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @contributions = Contribution.all
+    @contributors = Contributor.all.order(:id)
   end
 end

@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @contribution.name %>
+  <strong>Contributor:</strong>
+  <%= @contribution.contributor %>
 </p>
 
 <p>
   <strong>Amount:</strong>
   <%= @contribution.amount %>
+</p>
+
+<p>
+  <strong>Date collected:</strong>
+  <%= @contribution.date_collected %>
 </p>
 
 <%= link_to 'Edit', edit_contribution_path(@contribution) %> |

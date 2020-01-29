@@ -17,16 +17,16 @@
             ctr = 0
             total_contri = 0
           %>
-          <% @contributions.each do |contri| %>
+          <% @contributors.each do |contri| %>
           <% ctr += 1
-             total_contri += contri.amount
+             total_contri += contri.amount_share
           %>
 
           <tr>
             <td><%= ctr %></td>
             <td>XXXXXXXXXX</td>
-            <td><%= contri.amount / share %></td>
-            <td>P <%= ActionController::Base.helpers.number_with_delimiter('%.2f' % contri.amount) %></td>
+            <td><%= contri.amount_share / share %></td>
+            <td>P <%= ActionController::Base.helpers.number_with_delimiter('%.2f' % contri.amount_share) %></td>
           </tr>
           <% end %>
           <tr>

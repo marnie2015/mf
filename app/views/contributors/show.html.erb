@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @contributor.name %>
+</p>
+
+<p>
+  <strong>Amount share:</strong>
+  <%= @contributor.amount_share %>
+</p>
+
+<p>
+  <strong>Max limit:</strong>
+  <%= @contributor.max_limit %>
+</p>
+
+<%= link_to 'Edit', edit_contributor_path(@contributor) %> |
+<%= link_to 'Back', contributors_path %>

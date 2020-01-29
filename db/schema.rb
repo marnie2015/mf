@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_043242) do
+ActiveRecord::Schema.define(version: 2020_01_31_012842) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "contributions", force: :cascade do |t|
-    t.string "name"
+    t.bigint "contributor_id"
     t.integer "amount"
+    t.date "date_collected"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contributor_id"], name: "index_contributions_on_contributor_id"
+  end
+
+  create_table "contributors", force: :cascade do |t|
+    t.string "name"
+    t.integer "amount_share"
+    t.integer "max_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "contributions", "contributors"
 end

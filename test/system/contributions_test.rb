@@ -15,7 +15,8 @@ class ContributionsTest < ApplicationSystemTestCase
     click_on "New Contribution"
 
     fill_in "Amount", with: @contribution.amount
-    fill_in "Name", with: @contribution.name
+    fill_in "Contributor", with: @contribution.contributor_id
+    fill_in "Date collected", with: @contribution.date_collected
     click_on "Create Contribution"
 
     assert_text "Contribution was successfully created"
@@ -27,7 +28,8 @@ class ContributionsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Amount", with: @contribution.amount
-    fill_in "Name", with: @contribution.name
+    fill_in "Contributor", with: @contribution.contributor_id
+    fill_in "Date collected", with: @contribution.date_collected
     click_on "Update Contribution"
 
     assert_text "Contribution was successfully updated"
